@@ -33,6 +33,8 @@ GitHub Repository: https://github.com/tienrdrz/TradeWay
 
 Deployed URL:
 
+https://make-a-deal2.herokuapp.com/
+
 ## Contributing Developers
 
 Everyone involved in this project can be found on github below:
