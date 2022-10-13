@@ -19,6 +19,14 @@ After loading into the webpage, feel free to browse the items up for sale. If yo
 
 ## Screenshots
 
+Home Page: 
+
+![image](https://user-images.githubusercontent.com/100370557/195477760-1f1b2481-ce8c-4a76-9363-5628b5b79645.png)
+
+Login:
+
+![image](https://user-images.githubusercontent.com/100370557/195477778-7305d524-f00f-43a5-97d1-5b797cda10e7.png)
+
 ## Links 
 
 GitHub Repository: https://github.com/tienrdrz/TradeWay
