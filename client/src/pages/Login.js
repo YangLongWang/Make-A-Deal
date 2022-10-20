@@ -39,7 +39,7 @@ function Login(props) {
   };
 
   return (
-    <div className="container">
+    <div className="container-login-signup">
       <form className="form-box" onSubmit={handleFormSubmit}>
         <div className="login-box">
           <h1>login</h1>

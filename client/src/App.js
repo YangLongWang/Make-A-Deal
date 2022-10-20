@@ -1,6 +1,9 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container } from "react-bootstrap";
+
 import {
   ApolloClient,
   InMemoryCache,
@@ -18,6 +21,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import Buy from "./pages/Buy";
+
 import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
 import Store from "./pages/Store";
@@ -44,26 +48,31 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <div className="">
+      <Container>
+        <Nav />
+        <Router>
+          <Routes>
+            <Route index element={<Store />} />
+            <Route path="/success" element={<Success />} />
+            <Route path="/cancel" element={<Cancel />} />
+          </Routes>
+        </Router>
+        {/* <Router>
           <Header />
           <Nav />
-          <div className="">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/products/:id" element={<Buy />} />
-              {/* <Route index element={<Store />} /> */}
-              <Route path="/success" element={<Success />} />
-              <Route path="/cancel" element={<Cancel />} />
-            </Routes>
-          </div>
-
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/products/:id" element={<Buy />} />
+            <Route index element={<Store />} />
+            <Route path="/success" element={<Success />} />
+            <Route path="/cancel" element={<Cancel />} />
+          </Routes>
           <Footer />
-        </div>
-      </Router>
+        </Router> */}
+      </Container>
     </ApolloProvider>
   );
 }

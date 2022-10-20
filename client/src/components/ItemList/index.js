@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import ProductItem from "../ProductItem";
+import ProductItem from "../ProductCard";
 import { QUERY_ALL_ITEMS } from "../../utils/queries";
 
 function ItemList() {
