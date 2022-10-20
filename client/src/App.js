@@ -25,6 +25,7 @@ import Buy from "./pages/Buy";
 import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
 import Store from "./pages/Store";
+import CartProvider from "./CartContext";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -48,16 +49,17 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Container>
-        <Nav />
-        <Router>
-          <Routes>
-            <Route index element={<Store />} />
-            <Route path="/success" element={<Success />} />
-            <Route path="/cancel" element={<Cancel />} />
-          </Routes>
-        </Router>
-        {/* <Router>
+      <CartProvider>
+        <Container>
+          <Nav />
+          <Router>
+            <Routes>
+              <Route index element={<Store />} />
+              <Route path="/success" element={<Success />} />
+              <Route path="/cancel" element={<Cancel />} />
+            </Routes>
+          </Router>
+          {/* <Router>
           <Header />
           <Nav />
           <Routes>
@@ -72,7 +74,8 @@ function App() {
           </Routes>
           <Footer />
         </Router> */}
-      </Container>
+        </Container>
+      </CartProvider>
     </ApolloProvider>
   );
 }
