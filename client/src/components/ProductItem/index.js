@@ -17,10 +17,7 @@ function ProductItem(item) {
         <p>{desc}</p>
         <span>Total: ${price}</span>
       </div>
-      {Auth.loggedIn() ? (
-        <button onClick={purchase}>Purchase</button>
-      ) : // <span className=""> You must be logged in to purchase an item!</span>
-      null}
+      {Auth.loggedIn() ? <button onClick={purchase}>Purchase</button> : null}
     </div>
   );
 }

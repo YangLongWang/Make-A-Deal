@@ -4,20 +4,23 @@ import Auth from "../../utils/auth";
 
 const Nav = () => {
   return (
-    <div>
-      <nav className="navbar">
-        {Auth.loggedIn() ? (
-          <>
+    <nav className="navbar">
+      {Auth.loggedIn() ? (
+        <>
+          <div>
             <Link to="/">View Listings</Link>
             <Link to="/dashboard">My Listings</Link>
-          </>
-        ) : (
-          <>
-            <Link to="/">View Listings</Link>
-          </>
-        )}
-      </nav>
-    </div>
+          </div>
+          <div>
+            <button type="button">Cart 0 Items</button>
+          </div>
+        </>
+      ) : (
+        <>
+          <Link to="/">View Listings</Link>
+        </>
+      )}
+    </nav>
   );
 };
 
