@@ -28,11 +28,16 @@ const typeDefs = gql`
     user(email: String!): User
     items: [Item]
     item(_id: ID!): Item
+    checkout(products: [ID]!): Checkout
   }
 
   type Auth {
     token: ID!
     user: User
+  }
+
+  type Checkout {
+    session: ID
   }
 
   type Mutation {

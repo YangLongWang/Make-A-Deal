@@ -1,6 +1,11 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Item } = require("../models");
 const { signToken } = require("../utils/auth");
+// import stripe
+const stripe = require("stripe")(
+  "sk_test_51LmkUwI8Ja0J7Wc9bwQVKPGX6SRU8yawhturGzTPpF6BWbW8yf6imnLQeIZFj1pD91VM0vdk0UAK2MWIzisPYUpD00OtFswifF"
+);
+// process.env.STRIPE_KEY
 
 const resolvers = {
   Query: {
@@ -39,6 +44,28 @@ const resolvers = {
       console.log(_id);
 
       return item;
+    },
+    checkout: async (parent, args, context) => {
+      const items = args.body.items;
+      const lineItems = [];
+      items.forEach((item) => {
+        lineItems.push({
+          price: item.id,
+          quantity: item.quantity,
+        });
+      });
+
+      console.log(lineItems);
+
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        line_items: lineItems,
+        mode: "payment",
+        success_url: `http://localhost:3000/success`,
+        cancel_url: `http://localhost:3000/cancel`,
+      });
+
+      return { session: session.id };
     },
   },
   Mutation: {
