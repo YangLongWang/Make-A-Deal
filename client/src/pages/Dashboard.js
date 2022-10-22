@@ -89,7 +89,7 @@ function Dashboard() {
             </Form.Group>
             <Button variant="info">Add New Item</Button>
           </Form>
-          <div>
+          <div className="mb-3">
             <MyItem />
           </div>
         </>

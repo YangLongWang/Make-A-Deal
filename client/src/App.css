@@ -10,11 +10,6 @@ body {
   background: linear-gradient(200deg, #f3e7e9, #e3eeff);
 } 
 
-/****** Nav ******/
-/* .navbar {
-  margin-bottom: 60px;
-} */
-
 /****** Signup login ******/
 
 .login-signup {
@@ -24,8 +19,9 @@ body {
   border-radius: 5px;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
   position: relative;
+  margin-top: 30px;
 }
- 
+
 .form-box {
   position: absolute;
   top: -10%;
@@ -168,44 +164,6 @@ input:focus::placeholder {
   background-color: #d3b7d8;
   color: #fff;
 } 
-/*
-*/
-
-/******** dashboard show product ********/
-
-/* .my-item {
-  margin-top: 20px;
-}
-
-.container-card {
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 10px;
-  margin-bottom: 20px;
-}
-
-.card {
-  width: 168px;
-  height: 100px;
-  display: flex;
-  justify-self: center;
-  align-items: center;
-  margin: 10px 10px;
-}
-
-.card-detail {
-  flex: 1;
-  text-align: center;
-}
-
-.image-size {
-  width: 117px;
-  height: 70px;
-} */
 
 /******** ProductItem *********/
 /* 

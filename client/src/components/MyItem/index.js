@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
+import { Card, Col, Row } from "react-bootstrap";
 import { QUERY_ME } from "../../utils/queries";
+import "./index.css";
 
 function MyItem() {
   const { data } = useQuery(QUERY_ME);
@@ -12,31 +14,32 @@ function MyItem() {
   }
 
   return (
-    <div>
-      <div className="my-item">
-        <Link to="/">← Back to Products</Link>
+    <div className="my-item">
+      <Link to="/">← Back to Products</Link>
 
-        {user ? (
-          <>
-            <h2>Product for {user.username}</h2>
-            <div className="container-card">
-              {user.items.map((item) => (
-                <div key={item._id} className="card">
-                  <div className="card-detail">
-                    <img
-                      alt={item.itemName}
-                      src={`data:image/jpg;base64, ${item.itemImage}`}
-                      className="image-size"
-                    />
-                    <p>{item.itemName}</p>
-                    <p>${item.itemPrice}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </>
-        ) : null}
-      </div>
+      {user ? (
+        <>
+          <h2>Product for {user.username}</h2>
+          <Row xs={1} md={4} className="g-4 container-card">
+            {user.items.map((item) => (
+              <Col key={item._id} className="mx-2 card">
+                <Card className="card-detail">
+                  <Card.Img
+                    variant="top"
+                    alt={item.itemName}
+                    src={`data:image/jpg;base64, ${item.itemImage}`}
+                    className="image-size"
+                  />
+                  <Card.Body>
+                    <Card.Title>{item.itemName}</Card.Title>
+                    <Card.Text>${item.itemPrice}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </>
+      ) : null}
     </div>
   );
 }
