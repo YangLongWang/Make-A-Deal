@@ -55,27 +55,16 @@ function App() {
             <Header />
             <Nav />
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route index element={<Store />} />
+              <Route path="/" index element={<Home />} />
+              {/* <Route index element={<Store />} /> */}
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/success" element={<Success />} />
               <Route path="/cancel" element={<Cancel />} />
+              <Route path="/products/:id" element={<Buy />} />
             </Routes>
           </Router>
-          {/* <Router>
-          <Header />
-          <Nav />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/products/:id" element={<Buy />} />
-          </Routes>
-          <Footer />
-        </Router> */}
         </Container>
       </CartProvider>
     </ApolloProvider>

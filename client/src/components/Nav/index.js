@@ -45,7 +45,9 @@ const Nav = () => {
             <Navbar.Brand href="/dashboard">My Listings</Navbar.Brand>
           </Navbar>
           <Navbar className="justify-content-end">
-            <Button onClick={handleShow}>Cart ({productsCount} Items)</Button>
+            <Button variant="info" onClick={handleShow}>
+              Cart ({productsCount} Items)
+            </Button>
           </Navbar>
         </Navbar>
       ) : (

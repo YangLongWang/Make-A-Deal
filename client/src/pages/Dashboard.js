@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import Auth from "../utils/auth";
+import { Form, Button } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
 import { ADD_ITEM } from "../utils/mutations";
+import Auth from "../utils/auth";
 import MyItem from "../components/MyItem";
 
 function Dashboard() {
   const [formState, setFormState] = useState({
-    name: "",
+    title: "",
     desc: "",
     price: "",
     file: null,
@@ -27,24 +28,14 @@ function Dashboard() {
     event.preventDefault();
 
     let base64String = "";
-    // console.log(event.target.files[0]);
 
     var reader = new FileReader();
-    console.log("next");
 
     reader.onload = function () {
       base64String = reader.result.replace("data:", "").replace(/^.+,/, "");
-      // const imageStrings = [];
-      // let i = 0;
-      // while (i < base64String.length) {
-      //   imageStrings.push(base64String.slice(i, i + 250));
-      //   i = i + 250;
-      // }
-      // console.log(imageStrings);
 
       setFormState({
         ...formState,
-        // file: imageStrings,
         file: base64String,
       });
     };
@@ -55,16 +46,15 @@ function Dashboard() {
     event.preventDefault();
     const response = await addItem({
       variables: {
-        itemName: formState.name,
+        itemName: formState.title,
         itemDesc: formState.desc,
         itemPrice: formState.price,
         itemImage: formState.file,
       },
     });
-    console.log(response);
 
     setFormState({
-      name: "",
+      title: "",
       desc: "",
       price: "",
       file: null,
@@ -72,54 +62,43 @@ function Dashboard() {
   };
 
   return (
-    <div>
+    <>
+      <h1>Add New Item</h1>
       {Auth.loggedIn() ? (
-        <div>
-          <div>Dashboard</div>
-          <form onSubmit={handleFormSubmit}>
-            <div className="">
-              <label htmlFor="name">Name:</label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                onChange={handleChange}
+        <>
+          <Form onSubmit={handleFormSubmit}>
+            <Form.Group className="mb-3" controlId="formTitle">
+              <Form.Label>Title:</Form.Label>
+              <Form.Control type="text" name="title" onChange={handleChange} />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formDesc">
+              <Form.Label>Description:</Form.Label>
+              <Form.Control type="text" name="desc" onChange={handleChange} />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formPrice">
+              <Form.Label>Pricing:</Form.Label>
+              <Form.Control type="text" name="price" onChange={handleChange} />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formFile">
+              <Form.Label>Image:</Form.Label>
+              <Form.Control
+                type="file"
+                name="file"
+                onChange={handleUploadImage}
               />
-            </div>
-            <div className="">
-              <label htmlFor="desc">Description:</label>
-              <input
-                type="text"
-                name="desc"
-                id="desc"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="">
-              <label htmlFor="price">Pricing:</label>
-              <input
-                type="text"
-                name="price"
-                id="price"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="">
-              <label htmlFor="file">Image:</label>
-              <input type="file" name="file" onChange={handleUploadImage} />
-            </div>
-            <button>Add New Item</button>
-          </form>
+            </Form.Group>
+            <Button variant="info">Add New Item</Button>
+          </Form>
           <div>
             <MyItem />
           </div>
-        </div>
+        </>
       ) : (
         <div className="">
           <p>Please login into your account dashboard</p>
         </div>
       )}
-    </div>
+    </>
   );
 }
 
