@@ -51,10 +51,15 @@ function App() {
     <ApolloProvider client={client}>
       <CartProvider>
         <Container>
-          <Nav />
           <Router>
+            <Header />
+            <Nav />
             <Routes>
+              <Route path="/" element={<Home />} />
               <Route index element={<Store />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/success" element={<Success />} />
               <Route path="/cancel" element={<Cancel />} />
             </Routes>
@@ -68,9 +73,6 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/products/:id" element={<Buy />} />
-            <Route index element={<Store />} />
-            <Route path="/success" element={<Success />} />
-            <Route path="/cancel" element={<Cancel />} />
           </Routes>
           <Footer />
         </Router> */}

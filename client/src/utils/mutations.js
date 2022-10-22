@@ -39,28 +39,12 @@ export const ADD_ITEM = gql`
       itemPrice: $itemPrice
       itemImage: $itemImage
     ) {
-      updatedUser {
-        _id
-        username
-        email
-        itemCount
-        items {
-          _id
-          itemName
-          itemPrice
-          itemDesc
-          itemImage
-          postedAt
-        }
-      }
-      createdItem {
-        _id
-        itemName
-        itemDesc
-        itemPrice
-        itemImage
-        postedAt
-      }
+      _id
+      itemName
+      itemDesc
+      itemPrice
+      itemImage
+      postedAt
     }
   }
 `;

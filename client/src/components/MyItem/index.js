@@ -25,7 +25,7 @@ function MyItem() {
                   <div className="card-detail">
                     <img
                       alt={item.itemName}
-                      src={`data:image/png;base64, ${item.itemImage}`}
+                      src={`data:image/jpg;base64, ${item.itemImage}`}
                       className="image-size"
                     />
                     <p>{item.itemName}</p>

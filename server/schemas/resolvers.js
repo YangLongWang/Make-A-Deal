@@ -94,31 +94,15 @@ const resolvers = {
 
       return { token, user };
     },
-    // addItem: async (parent, args, context) => {
-    //   if (context.user) {
-    //     console.log(args);
-    //     const createdItem = await Item.create(args);
-
-    //     const updatedUser = await User.findByIdAndUpdate(
-    //       { _id: context.user._id },
-    //       { $addToSet: { items: { ...args } } },
-    //       { new: true, runValidators: true }
-    //     );
-    //     console.log(updatedUser, createdItem);
-    //     return { updatedUser, createdItem };
-    //   }
-
-    //   throw new AuthenticationError("You need to be logged in!");
-    // },
     addItem: async (parent, args, context) => {
       if (context.user) {
-        console.log(args);
         const itemData = await Item.create(args);
-        const userData = await User.findByIdAndUpdate(context.user._id, {
-          $push: { items: itemData },
-          new: true,
-        });
-        console.log(userData);
+        const userData = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { items: itemData } },
+          { new: true, runValidators: true }
+        );
+
         return itemData;
       }
 

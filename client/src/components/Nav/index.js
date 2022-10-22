@@ -37,24 +37,21 @@ const Nav = () => {
   };
 
   return (
-    // <nav className="navbar">
-    //   {Auth.loggedIn() ? (
-    //     <>
-    //       <div>
-    //         <Link to="/">View Listings</Link>
-    //         <Link to="/dashboard">My Listings</Link>
-    //       </div>
-    //       <div>
-    //         <button type="button">Cart 0 Items</button>
-    //       </div>
-    //     </>
-    //   ) : (
-    //     <>
-    //       <Link to="/">View Listings</Link>
-    //     </>
-    //   )}
-    // </nav>
     <>
+      <nav className="navbar">
+        {Auth.loggedIn() ? (
+          <>
+            <div>
+              <Link to="/">View Listings</Link>
+              <Link to="/dashboard">My Listings</Link>
+            </div>
+          </>
+        ) : (
+          <>
+            <Link to="/">View Listings</Link>
+          </>
+        )}
+      </nav>
       <Navbar expand="sm">
         <Navbar.Brand href="/">E-commerce Store</Navbar.Brand>
         <Navbar.Toggle />
