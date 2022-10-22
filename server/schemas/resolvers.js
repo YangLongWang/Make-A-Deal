@@ -46,7 +46,10 @@ const resolvers = {
       return item;
     },
     checkout: async (parent, args, context) => {
-      const items = args.body.items;
+      const url = "https://localhost:3001";
+
+      const items = args.items;
+      console.log(items);
       const lineItems = [];
       items.forEach((item) => {
         lineItems.push({
@@ -61,8 +64,8 @@ const resolvers = {
         payment_method_types: ["card"],
         line_items: lineItems,
         mode: "payment",
-        success_url: `http://localhost:3000/success`,
-        cancel_url: `http://localhost:3000/cancel`,
+        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${url}/cancel`,
       });
 
       return { session: session.id };
@@ -91,18 +94,32 @@ const resolvers = {
 
       return { token, user };
     },
+    // addItem: async (parent, args, context) => {
+    //   if (context.user) {
+    //     console.log(args);
+    //     const createdItem = await Item.create(args);
+
+    //     const updatedUser = await User.findByIdAndUpdate(
+    //       { _id: context.user._id },
+    //       { $addToSet: { items: { ...args } } },
+    //       { new: true, runValidators: true }
+    //     );
+    //     console.log(updatedUser, createdItem);
+    //     return { updatedUser, createdItem };
+    //   }
+
+    //   throw new AuthenticationError("You need to be logged in!");
+    // },
     addItem: async (parent, args, context) => {
       if (context.user) {
         console.log(args);
-        const createdItem = await Item.create(args);
-
-        const updatedUser = await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { items: { ...args } } },
-          { new: true, runValidators: true }
-        );
-        console.log(updatedUser, createdItem);
-        return { updatedUser, createdItem };
+        const itemData = await Item.create(args);
+        const userData = await User.findByIdAndUpdate(context.user._id, {
+          $push: { items: itemData },
+          new: true,
+        });
+        console.log(userData);
+        return itemData;
       }
 
       throw new AuthenticationError("You need to be logged in!");

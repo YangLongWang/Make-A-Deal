@@ -1,4 +1,5 @@
 const express = require("express");
+var bodyParser = require("body-parser");
 const path = require("path");
 // import Auth
 const { authMiddleware } = require("./utils/auth");
@@ -22,6 +23,8 @@ const server = new ApolloServer({
 // Serve up static assets
 app.use("/images", express.static(path.join(__dirname, "../client/images")));
 
+// app.use(bodyParser.json({ limit: "1mb" }));
+app.use(express.json({ limit: 20971520 }));
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
@@ -31,13 +34,13 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
-app.get("/checkout", (req, res) => {
-  res.send(
-    JSON.stringify({
-      url: session.url,
-    })
-  );
-});
+// app.post("/checkout", (req, res) => {
+//   res.send(
+//     JSON.stringify({
+//       url: session.url,
+//     })
+//   );
+// });
 
 // create a new Apollo server and pass in schema data
 const startApolloServer = async (typeDefs, resolvers) => {

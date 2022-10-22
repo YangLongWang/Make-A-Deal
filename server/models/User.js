@@ -21,7 +21,13 @@ const userSchema = new Schema(
       required: true,
       min: 4,
     },
-    items: [Item.schema],
+    items: [
+      // {
+      //   type: Schema.Types.ObjectId,
+      //   ref: "Item",
+      // },
+      Item.schema,
+    ],
   },
   {
     // set this to use virtual below
@@ -48,6 +54,7 @@ userSchema.methods.isCorrectPassword = async function (password) {
 
 // when we query a user, we'll also get another field called `itemCount` with the number of items we have
 userSchema.virtual("itemCount").get(function () {
+  console.log(this);
   return this.items.length;
 });
 
