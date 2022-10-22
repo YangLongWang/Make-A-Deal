@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Button, Container, Navbar, Modal } from "react-bootstrap";
+import { Button, Navbar, Modal } from "react-bootstrap";
 import { CartContext } from "../../CartContext";
 import CartProduct from "../CartProduct";
 import { Link } from "react-router-dom";
@@ -38,27 +38,22 @@ const Nav = () => {
 
   return (
     <>
-      <nav className="navbar">
-        {Auth.loggedIn() ? (
-          <>
-            <div>
-              <Link to="/">View Listings</Link>
-              <Link to="/dashboard">My Listings</Link>
-            </div>
-          </>
-        ) : (
-          <>
-            <Link to="/">View Listings</Link>
-          </>
-        )}
-      </nav>
-      <Navbar expand="sm">
-        <Navbar.Brand href="/">E-commerce Store</Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
-          <Button onClick={handleShow}>Cart ({productsCount} Items)</Button>
-        </Navbar.Collapse>
-      </Navbar>
+      {Auth.loggedIn() ? (
+        <Navbar expand="xl">
+          <Navbar>
+            <Navbar.Brand href="/">All Products</Navbar.Brand>
+            <Navbar.Brand href="/dashboard">My Listings</Navbar.Brand>
+          </Navbar>
+          <Navbar className="justify-content-end">
+            <Button onClick={handleShow}>Cart ({productsCount} Items)</Button>
+          </Navbar>
+        </Navbar>
+      ) : (
+        <Navbar expand="xl">
+          <Navbar.Brand href="/">All Products</Navbar.Brand>
+        </Navbar>
+      )}
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Shopping Cart</Modal.Title>

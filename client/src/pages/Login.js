@@ -5,7 +5,7 @@ import Auth from "../utils/auth";
 import { Link } from "react-router-dom";
 import Logo from "../assets/images/favicon (2).ico";
 
-function Login(props) {
+function Login() {
   const [formState, setFormState] = useState({
     email: "",
     password: "",
@@ -39,7 +39,7 @@ function Login(props) {
   };
 
   return (
-    <div className="container-login-signup">
+    <div className="login-signup">
       <form className="form-box" onSubmit={handleFormSubmit}>
         <div className="login-box">
           <h1>login</h1>

@@ -3,12 +3,12 @@
   padding: 0;
 }
 
-/* body {
+body {
   height: 100vh;
   display: flex;
   justify-content: center;
   background: linear-gradient(200deg, #f3e7e9, #e3eeff);
-} */
+} 
 
 /****** Nav ******/
 /* .navbar {
@@ -16,8 +16,8 @@
 } */
 
 /****** Signup login ******/
-/* 
-.container-login-signup {
+
+.login-signup {
   background-color: #fff;
   width: 650px;
   height: 415px;
@@ -25,7 +25,7 @@
   box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
   position: relative;
 }
-
+ 
 .form-box {
   position: absolute;
   top: -10%;
@@ -167,7 +167,9 @@ input:focus::placeholder {
 .con-box button:hover {
   background-color: #d3b7d8;
   color: #fff;
-} */
+} 
+/*
+*/
 
 /******** dashboard show product ********/
 
