@@ -10,7 +10,7 @@ const Home = () => {
       <h1 align="center" className="p-3">
         Welcome to the store!
       </h1>
-      <Row xs={2} md={4} className="g-3 justify-content-center">
+      <Row xs={2} md={4} className="g-3 justify-content-center ">
         <ItemList />
       </Row>
       {/* <Row xs={1} md={3} className="g-4">

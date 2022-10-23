@@ -87,7 +87,9 @@ function Dashboard() {
                 onChange={handleUploadImage}
               />
             </Form.Group>
-            <Button variant="info">Add New Item</Button>
+            <Button variant="info" type="submit">
+              Add New Item
+            </Button>
           </Form>
           <div className="mb-3">
             <MyItem />

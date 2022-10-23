@@ -20,10 +20,10 @@ function MyItem() {
       {user ? (
         <>
           <h2>Product for {user.username}</h2>
-          <Row xs={1} md={4} className="g-4 container-card">
+          <Row xs={1} md={3} className="g-2">
             {user.items.map((item) => (
-              <Col key={item._id} className="mx-2 card">
-                <Card className="card-detail">
+              <Col key={item._id} className="card-site">
+                <Card>
                   <Card.Img
                     variant="top"
                     alt={item.itemName}
