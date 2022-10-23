@@ -1,5 +1,5 @@
-/******** dashboard show product ********/
-
+/******** ProductCard (homepage) show products ********/
+/* 
 .my-item {
   margin-top: 20px;
 }
@@ -17,12 +17,13 @@
   justify-self: center;
   align-items: center;
   margin: 10px 0;
+  width: 180px;
 }
 
 .card-detail {
   flex: 1;
   text-align: center;
-}
+} */
 
 .image-size {
   width: 150px;

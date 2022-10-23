@@ -20,3 +20,7 @@
 a {
   text-decoration: none;
 }
+
+button a {
+  color: black;
+}

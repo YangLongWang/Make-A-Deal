@@ -7,14 +7,14 @@ import "./index.css";
 
 function ProductCard(props) {
   const { image, name, _id, price, desc } = props;
-  console.log(props);
+  // console.log(props);
   // const product = props.product;
   // console.log(product);
   const cart = useContext(CartContext);
   const productQuantity = cart.getProductQuantity(_id);
   console.log(cart.items);
   return (
-    <Card className="item-border">
+    <Card className="mx-1 text-center">
       <Card.Body>
         <Link to={`/products/${_id}`}>
           <img
@@ -24,8 +24,8 @@ function ProductCard(props) {
           />
           <Card.Title>{name}</Card.Title>
         </Link>
-        <div className="item-detail">
-          <p>{desc}</p>
+        <div className="">
+          <Card.Text>{desc}</Card.Text>
           <Card.Text>${price}</Card.Text>
         </div>
         {Auth.loggedIn() ? (
