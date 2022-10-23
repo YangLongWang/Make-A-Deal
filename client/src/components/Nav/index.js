@@ -39,7 +39,7 @@ const Nav = () => {
   return (
     <>
       {Auth.loggedIn() ? (
-        <Navbar expand="xl">
+        <Navbar expand="xl" className="bg-success">
           <Navbar>
             <Navbar.Brand href="/">All Products</Navbar.Brand>
             <Navbar.Brand href="/dashboard">My Listings</Navbar.Brand>
@@ -51,7 +51,7 @@ const Nav = () => {
           </Navbar>
         </Navbar>
       ) : (
-        <Navbar expand="xl">
+        <Navbar expand="xl" className="bg-success">
           <Navbar.Brand href="/">All Products</Navbar.Brand>
         </Navbar>
       )}
@@ -79,7 +79,7 @@ const Nav = () => {
               </Button>
             </>
           ) : (
-            <h1>There are no items in your cart!</h1>
+            <h2>There are no items in your cart!</h2>
           )}
         </Modal.Body>
       </Modal>

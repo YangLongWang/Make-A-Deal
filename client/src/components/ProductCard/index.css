@@ -1,0 +1,30 @@
+/******** dashboard show product ********/
+
+.my-item {
+  margin-top: 20px;
+}
+
+.container-card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.card {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.card-detail {
+  flex: 1;
+  text-align: center;
+}
+
+.image-size {
+  width: 150px;
+  height: 200px;
+} 

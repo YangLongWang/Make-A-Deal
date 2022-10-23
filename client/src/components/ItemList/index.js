@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import ProductCard from "../ProductCard"; 
+import ProductCard from "../ProductCard";
 import { QUERY_ALL_ITEMS } from "../../utils/queries";
 
 function ItemList() {
@@ -8,22 +8,18 @@ function ItemList() {
   console.log(data);
   const items = data?.items || [];
   return (
-    <div className="">
-      <div className="home-items">
-        {items.map((item) => (
-          <div className="">
-            <ProductCard
-              key={item._id}
-              _id={item._id}
-              name={item.itemName}
-              price={item.itemPrice}
-              image={item.itemImage}
-              desc={item.itemDesc}
-            />
-          </div>
-        ))}
-      </div>
-    </div>
+    <>
+      {items.map((item) => (
+        <ProductCard
+          key={item._id}
+          _id={item._id}
+          name={item.itemName}
+          price={item.itemPrice}
+          image={item.itemImage}
+          desc={item.itemDesc}
+        />
+      ))}
+    </>
   );
 }
 

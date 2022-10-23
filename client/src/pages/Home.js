@@ -16,7 +16,8 @@ const Home = () => {
       <Row xs={1} md={3} className="g-4">
         {productsArray.map((product, index) => (
           <Col align="center" key={index}>
-            <ProductCard product={product} />
+            {/* <ProductCard product={product} /> */}
+            <ItemList product={product} />
           </Col>
         ))}
       </Row>
