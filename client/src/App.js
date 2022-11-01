@@ -24,7 +24,7 @@ import Buy from "./pages/Buy";
 
 import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
-import Store from "./pages/Store";
+// import Store from "./pages/Store";
 import CartProvider from "./CartContext";
 
 const httpLink = createHttpLink({
@@ -64,6 +64,7 @@ function App() {
               <Route path="/cancel" element={<Cancel />} />
               <Route path="/products/:id" element={<Buy />} />
             </Routes>
+            <Footer />
           </Router>
         </Container>
       </CartProvider>

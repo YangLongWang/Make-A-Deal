@@ -21,6 +21,10 @@ a {
   text-decoration: none;
 }
 
+.title h1 {
+  color: black;
+}
+
 button a {
   color: black;
 }

@@ -6,10 +6,12 @@ import ProductCard from "../components/ProductCard";
 
 const Home = () => {
   return (
-    <>
-      <h1 align="center" className="p-3">
-        Welcome to the store!
-      </h1>
+    <Col>
+      <Row>
+        <h1 align="center" className="p-3">
+          Welcome to the store!
+        </h1>
+      </Row>
       <Row xs={2} md={4} className="g-3 justify-content-center ">
         <ItemList />
       </Row>
@@ -21,7 +23,7 @@ const Home = () => {
           </Col>
         ))}
       </Row> */}
-    </>
+    </Col>
   );
 };
 
