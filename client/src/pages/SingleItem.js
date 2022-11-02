@@ -8,25 +8,25 @@ import Auth from "../utils/auth";
 
 function Buy() {
   const { id } = useParams();
-
-  const [currentProduct, setCurrentProduct] = useState({});
+  console.log(id);
+  // const [currentProduct, setCurrentProduct] = useState({});
 
   const { data, error } = useQuery(QUERY_ITEM, {
-    variables: id,
+    variables: { id },
   });
 
-  console.log(useQuery(QUERY_ITEM, { variables: id }));
-  console.log(error);
-  console.log(id, data);
+  // console.log(useQuery(QUERY_ITEM, { variables: id }));
+  // console.log(error);
+  // console.log(id, data);
 
   const products = data?.item || [];
-  console.log(products);
+  // console.log(products);
 
-  useEffect(() => {
-    if (products.length) {
-      setCurrentProduct(products.find((product) => product._id === id));
-    }
-  }, [products, id]);
+  // useEffect(() => {
+  //   if (products.length) {
+  //     setCurrentProduct(products.find((product) => product._id === id));
+  //   }
+  // }, [products, id]);
 
   return (
     <>

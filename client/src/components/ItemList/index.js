@@ -5,7 +5,7 @@ import { QUERY_ALL_ITEMS } from "../../utils/queries";
 
 function ItemList() {
   const { data } = useQuery(QUERY_ALL_ITEMS);
-  console.log(data);
+  // console.log(data);
   const items = data?.items || [];
   return (
     <>

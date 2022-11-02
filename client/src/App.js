@@ -20,7 +20,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
-import Buy from "./pages/Buy";
+import SingleItem from "./pages/SingleItem";
 
 import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
@@ -62,7 +62,7 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/success" element={<Success />} />
               <Route path="/cancel" element={<Cancel />} />
-              <Route path="/products/:id" element={<Buy />} />
+              <Route path="/products/:id" element={<SingleItem />} />
             </Routes>
             <Footer />
           </Router>

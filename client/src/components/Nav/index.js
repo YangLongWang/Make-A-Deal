@@ -39,7 +39,7 @@ const Nav = () => {
   return (
     <>
       {Auth.loggedIn() ? (
-        <Navbar expand="xl" className="bg-warning p-2">
+        <Navbar expand="xl" className="bg-warning p-2 mb-2 border">
           <Navbar>
             <Navbar.Brand href="/">All Products</Navbar.Brand>
             <Navbar.Brand href="/dashboard">My Listings</Navbar.Brand>
@@ -51,7 +51,7 @@ const Nav = () => {
           </Navbar>
         </Navbar>
       ) : (
-        <Navbar expand="xl" className="bg-warning p-2">
+        <Navbar expand="xl" className="bg-warning p-2 mb-2 border">
           <Navbar.Brand href="/">All Products</Navbar.Brand>
         </Navbar>
       )}

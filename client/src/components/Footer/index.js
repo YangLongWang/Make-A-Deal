@@ -14,7 +14,7 @@ const Footer = () => {
     <Container className="mt-5">
       <Row>
         <Col className="text-center" md={{ span: 6, offset: 3 }}>
-          <h4>Thanks for Trading with us!</h4>
+          <h5>Thanks for Trading with us!</h5>
           &copy;{new Date().getFullYear()}
         </Col>
       </Row>
