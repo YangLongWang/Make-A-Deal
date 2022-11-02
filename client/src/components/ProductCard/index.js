@@ -11,8 +11,8 @@ function ProductCard(props) {
   // const product = props.product;
   // console.log(product);
   const cart = useContext(CartContext);
-  const productQuantity = cart.getProductQuantity(_id);
-  console.log(cart.items);
+  // const productQuantity = cart.getProductQuantity(_id);
+  // console.log(cart.items);
   return (
     <Card className="mx-1 text-center">
       <Card.Body>
