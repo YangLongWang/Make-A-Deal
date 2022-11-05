@@ -20,7 +20,7 @@ function MyItem() {
       {user ? (
         <>
           <h2>Product for {user.username}</h2>
-          <Row xs={1} md={3} className="g-2">
+          <Row xs={1} md={2} lg={3} className="g-2">
             {user.items.map((item) => (
               <Col key={item._id} className="card-site">
                 <Card>

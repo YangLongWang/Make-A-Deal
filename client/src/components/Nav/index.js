@@ -39,12 +39,15 @@ const Nav = () => {
   return (
     <>
       {Auth.loggedIn() ? (
-        <Navbar expand="xl" className="bg-warning p-2 mb-2 border">
+        <Navbar
+          expand="xl"
+          className="bg-warning p-2 mb-2 border justify-content-between"
+        >
           <Navbar>
             <Navbar.Brand href="/">All Products</Navbar.Brand>
             <Navbar.Brand href="/dashboard">My Listings</Navbar.Brand>
           </Navbar>
-          <Navbar className="justify-content-end">
+          <Navbar>
             <Button variant="info" onClick={handleShow}>
               Cart ({productsCount} Items)
             </Button>
