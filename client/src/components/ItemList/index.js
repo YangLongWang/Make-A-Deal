@@ -9,22 +9,19 @@ function ItemList() {
   // console.log(data);
   const items = data?.items || [];
   return (
-    <>
-      <Row xs={1} md={3} className="g-3 ">
-        {items.map((item) => (
-          <Col>
-            <ProductCard
-              key={item._id}
-              _id={item._id}
-              name={item.itemName}
-              price={item.itemPrice}
-              image={item.itemImage}
-              desc={item.itemDesc}
-            />
-          </Col>
-        ))}
-      </Row>
-    </>
+    <Row xs={1} md={3} className="g-3">
+      {items.map((item) => (
+        <Col key={item._id}>
+          <ProductCard
+            _id={item._id}
+            name={item.itemName}
+            price={item.itemPrice}
+            image={item.itemImage}
+            desc={item.itemDesc}
+          />
+        </Col>
+      ))}
+    </Row>
   );
 }
 
