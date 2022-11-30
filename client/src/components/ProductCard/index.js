@@ -14,7 +14,7 @@ function ProductCard(props) {
   // const productQuantity = cart.getProductQuantity(_id);
   // console.log(cart.items);
   return (
-    <Card className="mx-1 text-center">
+    <Card style={{ width: "17rem" }} className="mx-auto text-center">
       <Card.Body>
         <Link to={`/products/${_id}`}>
           <img
