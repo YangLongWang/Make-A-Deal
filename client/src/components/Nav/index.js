@@ -1,40 +1,20 @@
 import React, { useState, useContext } from "react";
-import { Button, Navbar, Modal } from "react-bootstrap";
-import { CartContext } from "../../CartContext";
-import CartProduct from "../CartProduct";
-import { Link } from "react-router-dom";
+import { Navbar } from "react-bootstrap";
+import Cart from "../Cart";
 import Auth from "../../utils/auth";
 
 const Nav = () => {
-  const cart = useContext(CartContext);
+  // const cart = useContext(CartContext);
 
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
 
-  const productsCount = cart.items.reduce(
-    (sum, product) => sum + product.quantity,
-    0
-  );
-
-  const checkout = async () => {
-    await fetch("http://localhost:3000/checkout", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ items: cart.items }),
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((response) => {
-        if (response.url) {
-          window.location.assign(response.url);
-        }
-      });
-  };
+  // const productsCount = cart.items.reduce(
+  //   (sum, product) => sum + product.quantity,
+  //   0
+  // );
 
   return (
     <>
@@ -48,9 +28,10 @@ const Nav = () => {
             <Navbar.Brand href="/dashboard">My Listings</Navbar.Brand>
           </Navbar>
           <Navbar>
-            <Button variant="info" onClick={handleShow}>
+            <Cart />
+            {/* <Button variant="info" onClick={handleShow}>
               Cart ({productsCount} Items)
-            </Button>
+            </Button> */}
           </Navbar>
         </Navbar>
       ) : (
@@ -59,7 +40,7 @@ const Nav = () => {
         </Navbar>
       )}
 
-      <Modal show={show} onHide={handleClose}>
+      {/* <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Shopping Cart</Modal.Title>
         </Modal.Header>
@@ -85,7 +66,7 @@ const Nav = () => {
             <h2>There are no items in your cart!</h2>
           )}
         </Modal.Body>
-      </Modal>
+      </Modal> */}
     </>
   );
 };

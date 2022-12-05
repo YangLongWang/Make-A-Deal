@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import ItemList from "../components/ItemList";
-import { Row, Col, Container } from "react-bootstrap";
-import { productsArray } from "../productsStore";
-import ProductCard from "../components/ProductCard";
+import { Row, Col } from "react-bootstrap";
 
 const Home = () => {
   return (
