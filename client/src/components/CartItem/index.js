@@ -14,36 +14,21 @@ const CartItem = ({ item }) => {
     idbPromise("cart", "delete", { ...item });
   };
 
-  const onChange = (e) => {
-    const value = e.target.value;
-
-    if (value === "0") {
-      dispatch({
-        type: REMOVE_FROM_CART,
-        _id: item._id,
-      });
-
-      idbPromise("cart", "delete", { ...item });
-    }
-  };
-
   return (
-    <div className="flex-row">
+    <div className="">
       <div>
-        <img src={`data:image/png;base64, ${item.image}`} alt="" />
+        <img
+          src={`data:image/png;base64, ${item.image}`}
+          alt="item pic"
+          style={{ width: "100px" }}
+        />
       </div>
       <div>
         <div>
           {item.name}, ${item.price}
         </div>
         <div>
-          <span>Qty:</span>
-          <input
-            type="number"
-            placeholder="1"
-            value={item.purchaseQuantity}
-            onChange={onChange}
-          />
+          <span>Qty: 1</span>
           <span
             role="img"
             aria-label="trash"
