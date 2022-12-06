@@ -1,4 +1,5 @@
 import React from "react";
+import { Row, Col, Button } from "react-bootstrap";
 import { useStoreContext } from "../../utils/GlobalState";
 import { REMOVE_FROM_CART } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
@@ -15,30 +16,39 @@ const CartItem = ({ item }) => {
   };
 
   return (
-    <div className="">
-      <div>
-        <img
-          src={`data:image/png;base64, ${item.image}`}
-          alt="item pic"
-          style={{ width: "100px" }}
-        />
-      </div>
-      <div>
-        <div>
-          {item.name}, ${item.price}
-        </div>
-        <div>
-          <span>Qty: 1</span>
-          <span
-            role="img"
-            aria-label="trash"
-            onClick={() => removeFromCart(item)}
-          >
-            🗑️
-          </span>
-        </div>
-      </div>
-    </div>
+    <>
+      <Row className="mb-4">
+        <Col>
+          <img
+            src={`data:image/png;base64, ${item.image}`}
+            alt="item pic"
+            style={{ width: "120px" }}
+          />
+        </Col>
+        <Col>
+          <Row>
+            <Col>{item.name}:</Col>
+            <Col>${item.price}</Col>
+          </Row>
+          <Row>
+            <Col>
+              <p>Qty: 1</p>
+            </Col>
+            <Col>
+              <Button
+                variant="outline-light"
+                role="img"
+                aria-label="trash"
+                onClick={() => removeFromCart(item)}
+              >
+                🗑️
+              </Button>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+      <hr />
+    </>
   );
 };
 
